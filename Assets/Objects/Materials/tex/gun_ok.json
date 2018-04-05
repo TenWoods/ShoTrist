@@ -1,0 +1,24 @@
+{
+    "format": {
+        "version": "1.0"
+    },
+    "shaders": {
+        "Main shader": {
+            "parameters": {
+                "Common Parameters": {
+                    "ao_intensity": 0.44999998807907104,
+                    "emissive_intensity": 0.9700000286102295,
+                    "nbSamples": 16
+                },
+                "height_force": 2.140000104904175
+            },
+            "shader": "pbr-metal-rough",
+            "shaderInstance": "Main shader"
+        }
+    },
+    "texturesets": {
+        "1001": {
+            "shader": "Main shader"
+        }
+    }
+}
