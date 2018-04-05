@@ -33,7 +33,7 @@ public class GameManager : MonoBehaviour
         int[,] map;
         BM = this.gameObject.GetComponent<BlockManager>();
         saveManager = new SaveDataSystem();
-        map = ((Map)saveManager.GetData("../XBOX/Assets/Maps/test.map", typeof(Map))).map;
+        map = ((Map)saveManager.GetData("../Shoteris/Assets/Maps/test.map", typeof(Map))).map;
         BuildMap(map);
         BM.Map = map;
         BM.GameStart = true;
