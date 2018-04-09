@@ -11,6 +11,8 @@ public class GameManager : MonoBehaviour
     private string saveDirectionary;
     private BlockManager BM;
     public GameObject normalBlock;
+    public GameObject floor_1;
+    public GameObject floor_2;
 
     public string SAVEDIR
     {
@@ -36,6 +38,8 @@ public class GameManager : MonoBehaviour
         map = ((Map)saveManager.GetData("../Shoteris/Assets/Maps/test.map", typeof(Map))).map;
         BuildMap(map);
         BM.Map = map;
+        map = ((Map)saveManager.GetData("../Shoteris/Assets/Maps/floorMap.map", typeof(Map))).map;
+        BuildFloor(map);
         BM.GameStart = true;
     }
 
@@ -52,7 +56,25 @@ public class GameManager : MonoBehaviour
                 }
             }
         }
+    }
 
+    private void BuildFloor(int[,] map)
+    {
+        int i = 0, j = 0;
+        for (i = 0; i < 8; i++)
+        {
+            for (j = 0; j < 15; j++)
+            {
+                if (map[i, j] == 4)
+                {
+                    GameObject.Instantiate(floor_1, new Vector3(i * 10, 0, j * 10), Quaternion.Euler(90, 0, 0));
+                }
+                else
+                {
+                    GameObject.Instantiate(floor_2, new Vector3(i * 10, 0, j * 10), Quaternion.Euler(90, 0, 0));
+                }
+            }
+        }
     }
 
     public void SaveData(string fileName, object obj)

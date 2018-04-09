@@ -6,6 +6,11 @@ using UnityEngine.UI;
 public class Map
 {
     public int[,] map;
+
+    public Map()
+    {
+        map = new int[8, 15];
+    }
 }
 
 public class MapEditor : MonoBehaviour
@@ -50,7 +55,7 @@ public class MapEditor : MonoBehaviour
 
     public void SaveMap()
     {
-        string filePath = "../XBOX/Assets/Maps/";
+        string filePath = "../Shoteris/Assets/Maps/";
         if (infield.text != string.Empty)
         {
             filePath += infield.text;
