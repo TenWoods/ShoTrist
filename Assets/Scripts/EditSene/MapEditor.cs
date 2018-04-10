@@ -53,9 +53,14 @@ public class MapEditor : MonoBehaviour
         }
     }
 
+    //保存地图
     public void SaveMap()
     {
-        string filePath = "../Shoteris/Assets/Maps/";
+        //文件路径
+        string filePath = Application.persistentDataPath + "/Save" + "/";
+        //创建文件夹
+        sd.CreateDirectionary(Application.persistentDataPath + "/Save");
+        Debug.Log(Application.persistentDataPath + "/Save");
         if (infield.text != string.Empty)
         {
             filePath += infield.text;

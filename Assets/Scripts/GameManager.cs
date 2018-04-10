@@ -35,10 +35,10 @@ public class GameManager : MonoBehaviour
         int[,] map;
         BM = this.gameObject.GetComponent<BlockManager>();
         saveManager = new SaveDataSystem();
-        map = ((Map)saveManager.GetData("../Shoteris/Assets/Maps/test.map", typeof(Map))).map;
+        map = ((Map)saveManager.GetData(Application.persistentDataPath + "/Save/test.map", typeof(Map))).map;
         BuildMap(map);
         BM.Map = map;
-        map = ((Map)saveManager.GetData("../Shoteris/Assets/Maps/floorMap.map", typeof(Map))).map;
+        map = ((Map)saveManager.GetData(Application.persistentDataPath + "/Save/floorMap.map", typeof(Map))).map;
         BuildFloor(map);
         BM.GameStart = true;
     }
@@ -77,6 +77,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    //存档
     public void SaveData(string fileName, object obj)
     {
         saveDirectionary = Application.persistentDataPath + "/Save";
@@ -85,6 +86,7 @@ public class GameManager : MonoBehaviour
         saveManager.SetData(filePath, obj);
     }
 
+    //读档
     public object ReadData(string fileName, Type type)
     {
         string filePath = saveDirectionary + "/" + fileName + ".save";

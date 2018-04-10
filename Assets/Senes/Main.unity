@@ -299,6 +299,26 @@ Prefab:
       propertyPath: m_NormalizedViewPortRect.x
       value: -0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 20372658032485164, guid: f2412b03c713a4b4b91b4d0fff22f9f0,
+        type: 2}
+      propertyPath: m_BackGroundColor.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 20372658032485164, guid: f2412b03c713a4b4b91b4d0fff22f9f0,
+        type: 2}
+      propertyPath: m_BackGroundColor.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 20372658032485164, guid: f2412b03c713a4b4b91b4d0fff22f9f0,
+        type: 2}
+      propertyPath: m_BackGroundColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 20372658032485164, guid: f2412b03c713a4b4b91b4d0fff22f9f0,
+        type: 2}
+      propertyPath: m_ClearFlags
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f2412b03c713a4b4b91b4d0fff22f9f0, type: 2}
   m_IsPrefabParent: 0
@@ -474,8 +494,8 @@ Light:
   m_Enabled: 1
   serializedVersion: 8
   m_Type: 1
-  m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
-  m_Intensity: 1
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Intensity: 0
   m_Range: 10
   m_SpotAngle: 30
   m_CookieSize: 10
@@ -494,7 +514,7 @@ Light:
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_Lightmapping: 4
+  m_Lightmapping: 1
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
@@ -762,6 +782,21 @@ Prefab:
         type: 2}
       propertyPath: m_NormalizedViewPortRect.x
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 20251980076303386, guid: bc75d54edc1f93442ae6d5b785e343d1,
+        type: 2}
+      propertyPath: m_BackGroundColor.r
+      value: 0.14705884
+      objectReference: {fileID: 0}
+    - target: {fileID: 20251980076303386, guid: bc75d54edc1f93442ae6d5b785e343d1,
+        type: 2}
+      propertyPath: m_BackGroundColor.g
+      value: 0.14705884
+      objectReference: {fileID: 0}
+    - target: {fileID: 20251980076303386, guid: bc75d54edc1f93442ae6d5b785e343d1,
+        type: 2}
+      propertyPath: m_BackGroundColor.b
+      value: 0.14705884
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: bc75d54edc1f93442ae6d5b785e343d1, type: 2}
