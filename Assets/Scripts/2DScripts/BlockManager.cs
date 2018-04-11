@@ -25,6 +25,10 @@ public class BlockManager : MonoBehaviour
 
     public int[,] Map
     {
+        get
+        {
+            return map;
+        }
         set
         {
             map = value;
@@ -33,13 +37,17 @@ public class BlockManager : MonoBehaviour
 
     public bool GameStart
     {
+        get
+        {
+            return gameStart;
+        }
         set
         {
             gameStart = value;
         }
     }
 
-    private void Start()
+    private void Awake()
     {
         initNewBlock = false;
         initAmonster = false;

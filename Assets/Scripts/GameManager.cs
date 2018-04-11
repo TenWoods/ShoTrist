@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
     //存档路径
     private string saveDirectionary;
     private BlockManager BM;
+    private bool buildFinish;
     public GameObject normalBlock;
     public GameObject floor_1;
     public GameObject floor_2;
@@ -30,17 +31,37 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public bool BuildFinish
+    {
+        get
+        {
+            return buildFinish;
+        }
+        set
+        {
+            buildFinish = value;
+        }
+    }
+
     private void Start()
     {
-        int[,] map;
+        buildFinish = false;
         BM = this.gameObject.GetComponent<BlockManager>();
+        int[,] map;
         saveManager = new SaveDataSystem();
+        map = ((Map)saveManager.GetData(Application.persistentDataPath + "/Save/floorMap.map", typeof(Map))).map;
+        BuildFloor(map);
         map = ((Map)saveManager.GetData(Application.persistentDataPath + "/Save/test.map", typeof(Map))).map;
         BuildMap(map);
         BM.Map = map;
-        map = ((Map)saveManager.GetData(Application.persistentDataPath + "/Save/floorMap.map", typeof(Map))).map;
-        BuildFloor(map);
-        BM.GameStart = true;
+    }
+
+    private void Update()
+    {
+        if (!BM.GameStart && buildFinish)
+        {
+            BM.GameStart = buildFinish;
+        }
     }
 
     private void BuildMap(int[,] map)
@@ -67,11 +88,11 @@ public class GameManager : MonoBehaviour
             {
                 if (map[i, j] == 4)
                 {
-                    GameObject.Instantiate(floor_1, new Vector3(i * 10, 0, j * 10), Quaternion.Euler(90, 0, 0));
+                    GameObject.Instantiate(floor_1, new Vector3(i * 10, 0, j * 10), Quaternion.Euler(0, 0, 0));
                 }
                 else
                 {
-                    GameObject.Instantiate(floor_2, new Vector3(i * 10, 0, j * 10), Quaternion.Euler(90, 0, 0));
+                    GameObject.Instantiate(floor_2, new Vector3(i * 10, 0, j * 10), Quaternion.Euler(0, 0, 0));
                 }
             }
         }
