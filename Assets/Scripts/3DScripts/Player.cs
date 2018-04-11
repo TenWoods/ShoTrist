@@ -6,6 +6,7 @@ using UnityEngine.Audio;
 
 public class Player : MonoBehaviour
 {
+
     public Player player;
     public float p_ForceRJ;
     public float p_ForceHover;
@@ -14,6 +15,7 @@ public class Player : MonoBehaviour
     Rigidbody p_rigidbody;
 
     //[SerializeField] private KeyCode Jump;
+
 	//角色
 	public Transform p_transform;
 
@@ -32,7 +34,9 @@ public class Player : MonoBehaviour
 	public int life = 10;
 
 	//用于计时跳跃蓄力时间长短的计时器
+
 	public float timer = 0;
+
 
 	public float nextTime = 0.0f;
 	public float fireRate = 0.5f;
@@ -48,7 +52,9 @@ public class Player : MonoBehaviour
 	//摄像机高度
 	[SerializeField] private float camera_Height = 0.1f;
 
+
     bool isGround = true;
+
 
 	public GameObject g_normalBullet;
 	public GameObject g_bombBullet;
@@ -68,6 +74,7 @@ public class Player : MonoBehaviour
 	public GameObject gun;
 
 
+
     private bool isJumpCD=false;
 	//跳跃技能是否在冷却
 
@@ -75,6 +82,7 @@ public class Player : MonoBehaviour
 	void Start ()
 	{
         p_rigidbody = GetComponent<Rigidbody>();
+
 		p_transform = this.transform;
 		//获取角色控制器组件
 		p_controller = this.GetComponent<CharacterController>();
@@ -87,8 +95,10 @@ public class Player : MonoBehaviour
 		//设置摄像机的旋转方向和主角一致
 		camera_Transform.rotation = p_transform.rotation;
 		camera_Rot = camera_Transform.eulerAngles;
+
         //锁定鼠标
         Cursor.lockState = CursorLockMode.Locked;
+
 //		bullet1=new NormalBullet(1,1);
 	}
 	
@@ -120,8 +130,6 @@ public class Player : MonoBehaviour
 		
 		//定义三个值控制移动
 		float xm = 0, ym = 0, zm = 0;
-		//重力
-		//ym -= gravity * Time.deltaTime;
 
 		//四方向移动代码
 		if (Total_Input.ctr_front)
@@ -182,12 +190,13 @@ public class Player : MonoBehaviour
 			}
 			
 		}
-
         transform.Translate(new Vector3(xm, ym, zm));
+
 		camera_Transform.position = p_transform.TransformPoint(0, -0.6f, 0);
 
 		
 	}
+
 
     /// <summary>
     /// 用于检测JumpCD变量的函数，当计时器超过冷却时间时将JumpCD置false，同时重置计时器
@@ -214,12 +223,12 @@ public class Player : MonoBehaviour
     /// 用于拾取生命值时添加生命
     /// </summary>
     /// <param name="healing">增加的生命值</param>
+
 	void AddHealth(int  healing)
 	{
 		print("I nead healing!+1");
 		this.life += healing;
 	}
-
     /// <summary>
     /// 用于拾取子弹时更改子弹状态
     /// </summary>
@@ -243,4 +252,5 @@ public class Player : MonoBehaviour
         }
         print("has changed it to " + _bullets.ToString());
     }
+
 }
