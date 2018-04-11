@@ -10,7 +10,10 @@ public class GameManager : MonoBehaviour
     //存档路径
     private string saveDirectionary;
     private BlockManager BM;
+    private bool buildFinish;
     public GameObject normalBlock;
+    public GameObject floor_1;
+    public GameObject floor_2;
 
     public string SAVEDIR
     {
@@ -28,15 +31,37 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public bool BuildFinish
+    {
+        get
+        {
+            return buildFinish;
+        }
+        set
+        {
+            buildFinish = value;
+        }
+    }
+
     private void Start()
     {
-        int[,] map;
+        buildFinish = false;
         BM = this.gameObject.GetComponent<BlockManager>();
+        int[,] map;
         saveManager = new SaveDataSystem();
-        map = ((Map)saveManager.GetData("../XBOX/Assets/Maps/test.map", typeof(Map))).map;
+        map = ((Map)saveManager.GetData(Application.persistentDataPath + "/Save/floorMap.map", typeof(Map))).map;
+        BuildFloor(map);
+        map = ((Map)saveManager.GetData(Application.persistentDataPath + "/Save/test.map", typeof(Map))).map;
         BuildMap(map);
         BM.Map = map;
-        BM.GameStart = true;
+    }
+
+    private void Update()
+    {
+        if (!BM.GameStart && buildFinish)
+        {
+            BM.GameStart = buildFinish;
+        }
     }
 
     private void BuildMap(int[,] map)
@@ -52,9 +77,28 @@ public class GameManager : MonoBehaviour
                 }
             }
         }
-
     }
 
+    private void BuildFloor(int[,] map)
+    {
+        int i = 0, j = 0;
+        for (i = 0; i < 8; i++)
+        {
+            for (j = 0; j < 15; j++)
+            {
+                if (map[i, j] == 4)
+                {
+                    GameObject.Instantiate(floor_1, new Vector3(i * 10, 0, j * 10), Quaternion.Euler(0, 0, 0));
+                }
+                else
+                {
+                    GameObject.Instantiate(floor_2, new Vector3(i * 10, 0, j * 10), Quaternion.Euler(0, 0, 0));
+                }
+            }
+        }
+    }
+
+    //存档
     public void SaveData(string fileName, object obj)
     {
         saveDirectionary = Application.persistentDataPath + "/Save";
@@ -63,6 +107,7 @@ public class GameManager : MonoBehaviour
         saveManager.SetData(filePath, obj);
     }
 
+    //读档
     public object ReadData(string fileName, Type type)
     {
         string filePath = saveDirectionary + "/" + fileName + ".save";
