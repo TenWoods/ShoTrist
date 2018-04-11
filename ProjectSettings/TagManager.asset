@@ -11,6 +11,7 @@ TagManager:
   - Block_2
   - StillBlock
   - BlockButton
+  - Ground
   layers:
   - Default
   - TransparentFX
