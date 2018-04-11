@@ -106,7 +106,7 @@ public class BlockManager : MonoBehaviour
         map[(int)(block_1.x / 10), (int)(block_1.z / 10)] = 0;
         map[(int)(block_2.x / 10), (int)(block_2.z / 10)] = 0;
         //向左移动
-        if (Input.GetKeyDown(KeyCode.A))
+        if (Total_Input.ctr_a)
         {
             if ((block_1.x - 10) / 10 >= 0 && (block_2.x - 10) / 10 >= 0)
             {
@@ -118,7 +118,7 @@ public class BlockManager : MonoBehaviour
             }
         }
         //向右移动
-        if (Input.GetKeyDown(KeyCode.D))
+        if (Total_Input.ctr_d)
         {
             if ((block_1.x + 10) / 10 < 8 && (block_2.x + 10) / 10 < 8)
             {
@@ -130,7 +130,7 @@ public class BlockManager : MonoBehaviour
             }
         }
         //旋转
-        if (Input.GetKeyDown(KeyCode.W))
+        if (Total_Input.ctr_w)
         {
             rotateFlag_1 = (block_1.z * 10 + block_1.x);
             rotateFlag_2 = (block_2.z * 10 + block_2.x);
@@ -184,7 +184,7 @@ public class BlockManager : MonoBehaviour
             }
         }
         //向下移动
-        if (Input.GetKey(KeyCode.S))
+        if (Total_Input.ctr_s)
         {
             AccelerateSpeed = Mathf.Min(Block_1.GetComponent<BlockHP>().AS, Block_2.GetComponent<BlockHP>().AS);
             block_1 += new Vector3(0, 0, -AccelerateSpeed * Time.deltaTime);

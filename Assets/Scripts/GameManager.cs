@@ -4,7 +4,9 @@ using System;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
+
 {
+    public static GameManager instance;
     //存档管理对象
     private SaveDataSystem saveManager;
     //存档路径
@@ -30,6 +32,7 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+        instance = this;
         int[,] map;
         BM = this.gameObject.GetComponent<BlockManager>();
         saveManager = new SaveDataSystem();

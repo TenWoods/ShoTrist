@@ -9,7 +9,7 @@ public class ObjectsManager : MonoBehaviour
     public ObjectsManager(float livingTime)
     {
         this.liveTime = livingTime;
-
+        
     }
 
     public void propertity()
