@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 33766476309702906}
   - component: {fileID: 23692893935049466}
   - component: {fileID: 114891300319823950}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Floor_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,4 +94,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2327a65fc34a104782de514666b4d98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotateSpeed: 1
+  rotateSpeed: 25

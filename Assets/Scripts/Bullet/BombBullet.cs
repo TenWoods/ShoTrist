@@ -2,36 +2,41 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BombBullet : Bullet {
+public class BombBullet : Bullet
+{
+    float livetime = 5f;
+    // Use this for initialization
+    public BombBullet(float flySpeed, float damage, float shootSpeed) : base(flySpeed, damage, shootSpeed)
+    {
+    }
 
-	// Use this for initialization
-	public BombBullet(float flySpeed, float damage, float shootSpeed) : base(flySpeed, damage, shootSpeed)
-	{
-	}
+    public Transform transform;
+    public Rigidbody rigidbody;
+    private GameObject gun;
 
-	public Transform transform;
-	public Rigidbody rigidbody;
-	private GameObject gun;
+    private void Start()
+    {
+        gun = GameObject.FindGameObjectWithTag("3dCamera");
+        rigidbody.velocity = gun.transform.TransformDirection(Vector3.forward) * flySpeed;
 
-	private void Start()
-	{
-		gun=GameObject.FindGameObjectWithTag("3dCamera");
-		Vector3 targetDirection=new Vector3(0,0,0);
-		float y = gun.transform.eulerAngles.y;
-		targetDirection = Quaternion.Euler(0, y-90, 0)*targetDirection;
-		//Quaternion pos = new Quaternion();
-		//Debug.Log(gun.transform.forward.y);
-		//pos.eulerAngles=new Vector3(0,gun.transform.forward.y,gun.transform.forward.z);
-		//this.transform.rotation = pos;
-		this.transform.LookAt(targetDirection);
-		rigidbody.velocity=gun.transform.TransformDirection(Vector3.forward)*flySpeed;
-		
-	}
+    }
+
+    public void Update()
+    {
+        //Destroy(this.gameObject,livetime );
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Block_1") || other.gameObject.CompareTag("Block_2"))
+        {
+            other.gameObject.SendMessage("TakeDamage", damage);
+        }
+        if (!other.gameObject.CompareTag("Player"))
+        {//通过取消对Player的碰撞来取消相机方向向上时的迷之碰撞
+            Destroy(this.gameObject);
+        }
+
+    }
 
 
-	private void OnTriggerEnter(Collider other)
-	{
-		//Destroy(other);
-		Destroy(gameObject);
-	}
 }

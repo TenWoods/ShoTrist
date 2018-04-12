@@ -46,7 +46,7 @@ public class Player : MonoBehaviour
 	private Vector3 camera_Rot;
 
 	//摄像机高度
-	[SerializeField] private float camera_Height = 0.1f;
+	[SerializeField] private float camera_Height = 5f;
 
     bool isGround = true;
 
@@ -89,6 +89,7 @@ public class Player : MonoBehaviour
 		camera_Rot = camera_Transform.eulerAngles;
         //锁定鼠标
         Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
 //		bullet1=new NormalBullet(1,1);
 	}
 	
@@ -103,6 +104,7 @@ public class Player : MonoBehaviour
 	void Control()
 	{
 
+        //Debug.Log("ctr");
 		//获取鼠标移动距离
 		float r_horizontal = Input.GetAxis("Mouse X");
 		float r_vertical = Input.GetAxis("Mouse Y");
@@ -126,6 +128,7 @@ public class Player : MonoBehaviour
 		//四方向移动代码
 		if (Total_Input.ctr_front)
 		{
+            Debug.Log("ctr");
 			zm += p_moveSpeed * Time.deltaTime;
 		}
 		else if (Total_Input.ctr_back)
