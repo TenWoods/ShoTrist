@@ -49,7 +49,8 @@ public class GameManager : MonoBehaviour
         BM = this.gameObject.GetComponent<BlockManager>();
         int[,] map;
         saveManager = new SaveDataSystem();
-        map = ((Map)saveManager.GetData(Application.persistentDataPath + "/Save/floorMap.map", typeof(Map))).map;
+        Debug.Log(saveDirectionary);
+        map = ((Map)saveManager.GetData(Application.persistentDataPath + "/Save/test.map", typeof(Map))).map;
         BuildFloor(map);
         map = ((Map)saveManager.GetData(Application.persistentDataPath + "/Save/test.map", typeof(Map))).map;
         BuildMap(map);
@@ -88,11 +89,11 @@ public class GameManager : MonoBehaviour
             {
                 if (map[i, j] == 4)
                 {
-                    GameObject.Instantiate(floor_1, new Vector3(i * 10, 0, j * 10), Quaternion.Euler(0, 0, 0));
+                    GameObject.Instantiate(floor_1, new Vector3(i * 10, 0, j * 10), Quaternion.Euler(0, -45, 0));
                 }
                 else
                 {
-                    GameObject.Instantiate(floor_2, new Vector3(i * 10, 0, j * 10), Quaternion.Euler(0, 0, 0));
+                    GameObject.Instantiate(floor_2, new Vector3(i * 10, 0, j * 10), Quaternion.Euler(0, -45, 0));
                 }
             }
         }

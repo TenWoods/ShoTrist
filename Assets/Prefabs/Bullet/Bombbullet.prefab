@@ -141,9 +141,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb600e3d760e0044eb03616292ab4c70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  flySpeed: 20
-  damage: 0
-  shootSpeed: 0
+  flySpeed: 100
+  damage: 5
+  shootSpeed: 0.5
   transform: {fileID: 4432833414862768}
   rigidbody: {fileID: 54757073457357150}
 --- !u!135 &135725504265813438
