@@ -18,6 +18,4 @@ public class Total_Input : MonoBehaviour {
     public static bool ctr_s = false;
     public static bool ctr_d = false;
 
-
-
 }
