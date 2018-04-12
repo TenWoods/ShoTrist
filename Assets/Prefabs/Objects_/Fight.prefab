@@ -9,47 +9,46 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1670247857654314}
+  m_RootGameObject: {fileID: 1316433885970400}
   m_IsPrefabParent: 1
---- !u!1 &1670247857654314
+--- !u!1 &1316433885970400
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 5
   m_Component:
-  - component: {fileID: 4103149059565458}
-  - component: {fileID: 33239172448094450}
-  - component: {fileID: 65199783284266782}
-  - component: {fileID: 23876187520406808}
-  - component: {fileID: 54115605546506844}
-  - component: {fileID: 114157412579615402}
+  - component: {fileID: 4570563613222076}
+  - component: {fileID: 33403773683051118}
+  - component: {fileID: 65317513459149080}
+  - component: {fileID: 23995748248296146}
+  - component: {fileID: 114489718107551574}
   m_Layer: 0
-  m_Name: Health
+  m_Name: Fight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4103149059565458
+--- !u!4 &4570563613222076
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1670247857654314}
-  m_LocalRotation: {x: 0.23718977, y: 0.23294286, z: 0.13769867, w: 0.93301547}
-  m_LocalPosition: {x: 0, y: 1.23, z: 0}
-  m_LocalScale: {x: 0.8, y: 0.8, z: 0.8}
+  m_GameObject: {fileID: 1316433885970400}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 18.9, y: 4.43, z: 8.01}
+  m_LocalScale: {x: 3, y: 3, z: 3}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 22.238, y: 32.696003, z: 23.390001}
---- !u!23 &23876187520406808
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!23 &23995748248296146
 MeshRenderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1670247857654314}
+  m_GameObject: {fileID: 1316433885970400}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -58,7 +57,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 479e7c10b235db44e81775f305cd0058, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -78,50 +77,34 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!33 &33239172448094450
+--- !u!33 &33403773683051118
 MeshFilter:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1670247857654314}
+  m_GameObject: {fileID: 1316433885970400}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!54 &54115605546506844
-Rigidbody:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1670247857654314}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
---- !u!65 &65199783284266782
+--- !u!65 &65317513459149080
 BoxCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1670247857654314}
+  m_GameObject: {fileID: 1316433885970400}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &114157412579615402
+--- !u!114 &114489718107551574
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1670247857654314}
+  m_GameObject: {fileID: 1316433885970400}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 29569ef8e841d694f986153ae282a60f, type: 3}
+  m_Script: {fileID: 11500000, guid: 41516a67279db0c45b0da780674d1b1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  liveTime: 1.7
-  transform: {fileID: 4103149059565458}
+  liveTime: 7
