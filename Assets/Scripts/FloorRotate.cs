@@ -10,9 +10,10 @@ public class FloorRotate : MonoBehaviour
     private void Update()
     {
         float rotate_x = transform.rotation.eulerAngles.x;
-        if (Mathf.Abs(rotate_x - 90) >= 0.01 && rotate_x < 90)
+        Debug.Log(rotate_x);
+        if (Mathf.Abs(rotate_x - 90) >= 0.01)
         {
-            rotate_x -= Time.deltaTime * rotateSpeed;
+            rotate_x = Mathf.Lerp(rotate_x, 90, Time.deltaTime * rotateSpeed);
             transform.rotation = Quaternion.Euler(rotate_x, 0, 0);
         }
         else

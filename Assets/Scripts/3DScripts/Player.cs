@@ -12,8 +12,6 @@ public class Player : MonoBehaviour
     //为火箭跳和悬浮分别创建变量
     public const float JumpCD=10.0f; 
     Rigidbody p_rigidbody;
-
-    //[SerializeField] private KeyCode Jump;
 	//角色
 	public Transform p_transform;
 
@@ -66,8 +64,6 @@ public class Player : MonoBehaviour
 	Bullets _bullets=Bullets.bombBullet;
 	
 	public GameObject gun;
-
-
     private bool isJumpCD=false;
 	//跳跃技能是否在冷却
 
@@ -182,8 +178,8 @@ public class Player : MonoBehaviour
 			}
 			
 		}
-
         transform.Translate(new Vector3(xm, ym, zm));
+
 		camera_Transform.position = p_transform.TransformPoint(0, -0.6f, 0);
 
 		
@@ -219,7 +215,6 @@ public class Player : MonoBehaviour
 		print("I nead healing!+1");
 		this.life += healing;
 	}
-
     /// <summary>
     /// 用于拾取子弹时更改子弹状态
     /// </summary>
