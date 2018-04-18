@@ -52,10 +52,6 @@ public class GameManager : MonoBehaviour
         saveDirectionary = Application.persistentDataPath + "/Save";
         saveManager.CreateDirectionary(saveDirectionary);
         map = ((Map)saveManager.GetData(saveDirectionary + "/floorMap.map", typeof(Map))).map;
-        BuildFloor(map);
-        map = ((Map)saveManager.GetData(saveDirectionary + "/test.map", typeof(Map))).map;
-        BuildMap(map);
-        BM.Map = map;
     }
 
     private void Update()
