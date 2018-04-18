@@ -49,12 +49,9 @@ public class GameManager : MonoBehaviour
         BM = this.gameObject.GetComponent<BlockManager>();
         int[,] map;
         saveManager = new SaveDataSystem();
-        Debug.Log(saveDirectionary);
-        map = ((Map)saveManager.GetData(Application.persistentDataPath + "/Save/test.map", typeof(Map))).map;
-        BuildFloor(map);
-        map = ((Map)saveManager.GetData(Application.persistentDataPath + "/Save/test.map", typeof(Map))).map;
-        BuildMap(map);
-        BM.Map = map;
+        saveDirectionary = Application.persistentDataPath + "/Save";
+        saveManager.CreateDirectionary(saveDirectionary);
+        map = ((Map)saveManager.GetData(saveDirectionary + "/floorMap.map", typeof(Map))).map;
     }
 
     private void Update()
@@ -65,6 +62,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    //生成地图
     private void BuildMap(int[,] map)
     {
         int i = 0, j = 0;
@@ -80,6 +78,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    //生成地板
     private void BuildFloor(int[,] map)
     {
         int i = 0, j = 0;

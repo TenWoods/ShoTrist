@@ -25,6 +25,7 @@ public class MapEditor : MonoBehaviour
     [SerializeField]
     private float cameraMoveSpeed;
 
+    public GameObject StartUI;
     public GameObject game;
     public GameObject edit;
     public GameObject camera_2D;
@@ -65,6 +66,7 @@ public class MapEditor : MonoBehaviour
                 edit.SetActive(false);
                 camera_2D.SetActive(true);
                 game.SetActive(true);
+                StartUI.SetActive(false);
             }
             else
             {
