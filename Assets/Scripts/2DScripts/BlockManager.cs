@@ -6,6 +6,8 @@ public class BlockManager : MonoBehaviour
 {
     [SerializeField]
     private float MoveSpeed;
+    //最小速度
+    public static float baseSpeed = 6f;
     [SerializeField]
     private float AccelerateSpeed;
     //地图数组：红为1，蓝为2，黄为3，无方块为0, 墙为4

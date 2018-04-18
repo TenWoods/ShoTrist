@@ -61,7 +61,7 @@ public class Player : MonoBehaviour
 		fightBullet,
 	}
 
-	Bullets _bullets=Bullets.bombBullet;
+	[SerializeField]Bullets _bullets=Bullets.bombBullet;
 	
 	public GameObject gun;
     private bool isJumpCD=false;
