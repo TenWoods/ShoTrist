@@ -66,7 +66,14 @@ public class BlockManager : MonoBehaviour
             }
             else
             {
-                BlockMove();
+                if (Block_1.GetComponent<BlockHP>().IsBroken && Block_2.GetComponent<BlockHP>().IsBroken)
+                {
+                    initNewBlock = false;
+                }
+                else
+                {
+                    BlockMove();
+                }
             }
         }
     }
