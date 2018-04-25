@@ -8,6 +8,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Senes/Main.unity
     guid: 1d6cde0df3111a6418e1801d2e01b5aa
-  - enabled: 0
-    path: Assets/Senes/DesignSene.unity
-    guid: 5037df19f5dce3f42b8a25022c6289f3
+  - enabled: 1
+    path: Assets/Senes/StartSene.unity
+    guid: 70c15bd3af9b3f24689d4d9a7b08052e
