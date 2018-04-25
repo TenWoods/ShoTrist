@@ -33,7 +33,7 @@ public class MapEditor : MonoBehaviour
     public GameObject camera_2D;
     public Camera camera_3D;
     public Camera editCamera;
-    
+
 
     private void Start()
     {

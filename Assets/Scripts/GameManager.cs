@@ -49,9 +49,14 @@ public class GameManager : MonoBehaviour
         BM = this.gameObject.GetComponent<BlockManager>();
         int[,] map;
         saveManager = new SaveDataSystem();
+<<<<<<< HEAD
         saveDirectionary = Application.persistentDataPath + "/Save";
         saveManager.CreateDirectionary(saveDirectionary);
         map = ((Map)saveManager.GetData(saveDirectionary + "/floorMap.map", typeof(Map))).map;
+=======
+        Debug.Log(saveDirectionary);
+        map = ((Map)saveManager.GetData(Application.persistentDataPath + "/Save/test.map", typeof(Map))).map;
+>>>>>>> 6ef51ba60aafb182554cc7f67e64bb12a2a07a05
         BuildFloor(map);
         map = ((Map)saveManager.GetData(saveDirectionary + "/test.map", typeof(Map))).map;
         BuildMap(map);

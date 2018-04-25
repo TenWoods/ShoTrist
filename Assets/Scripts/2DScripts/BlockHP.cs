@@ -65,7 +65,8 @@ public class BlockHP : MonoBehaviour
     }
     
     public void SpeedDown(float downNum)
-    {
-        moveSpeed -= downNum;
+    {//TODO 延时恢复原来速度
+        if (moveSpeed - downNum < BlockManager.baseSpeed) { }
+        else moveSpeed -= downNum;
     }
 }

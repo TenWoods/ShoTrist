@@ -2,33 +2,30 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BombBullet : Bullet
-{
-    float livetime = 5f;
-    // Use this for initialization
-    public BombBullet(float flySpeed, float damage, float shootSpeed) : base(flySpeed, damage, shootSpeed)
-    {
-    }
+public class FrozenBullet : Bullet {
 
-    public Transform transform;
+    float liveTime=5.0f;
+    [SerializeField]float downSpeed = 5.0f;
+    public FrozenBullet(float flySpeed,float damage,float shootSpeed):base(flySpeed, damage, shootSpeed)
+    {}
     public Rigidbody rigidbody;
     private GameObject gun;
-
-    private void Start()
-    {
+	// Use this for initialization
+	void Start () {
         gun = GameObject.FindGameObjectWithTag("3dCamera");
-        rigidbody.velocity = gun.transform.TransformDirection(Vector3.forward) * flySpeed;
+        rigidbody.velocity = gun.transform.TransformDirection(Vector3.forward) * flySpeed ;
+	}
+	
+	// Update is called once per frame
+	void Update () {
+		
+	}
 
-    }
-
-    public void Update()
-    {
-        //Destroy(this.gameObject,livetime );
-    }
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Block_1") || other.gameObject.CompareTag("Block_2"))
         {
+            other.gameObject.SendMessage("SpeedDown", downSpeed);
             other.gameObject.SendMessage("TakeDamage", damage);
         }
         if (!other.gameObject.CompareTag("Player"))
@@ -37,6 +34,4 @@ public class BombBullet : Bullet
         }
 
     }
-
-
 }
