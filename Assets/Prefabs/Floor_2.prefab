@@ -95,7 +95,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
 <<<<<<< HEAD
+<<<<<<< HEAD
   rotateSpeed: 10
 =======
   rotateSpeed: 25
 >>>>>>> 6ef51ba60aafb182554cc7f67e64bb12a2a07a05
+=======
+  rotateSpeed: 25
+>>>>>>> 13a73ef9a6144dcef7d8af49da5b4c25b1e4fea0

@@ -407,10 +407,17 @@ Transform:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
+<<<<<<< HEAD
   m_GameObject: {fileID: 298894631}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+=======
+  m_GameObject: {fileID: 153488844}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -906, y: 0, z: 0}
+  m_LocalScale: {x: 5, y: 5, z: 5}
+>>>>>>> 13a73ef9a6144dcef7d8af49da5b4c25b1e4fea0
   m_Children: []
   m_Father: {fileID: 1390828320}
   m_RootOrder: 2
@@ -1574,6 +1581,7 @@ Transform:
   m_PrefabParentObject: {fileID: 4386127551926362, guid: 779330a0cb7d25d4f92c36bd47cac4a4,
     type: 2}
   m_PrefabInternal: {fileID: 0}
+<<<<<<< HEAD
   m_GameObject: {fileID: 222531981}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -40, y: 0, z: 0}
@@ -1581,6 +1589,55 @@ Transform:
   m_Children: []
   m_Father: {fileID: 766434714}
   m_RootOrder: 4
+=======
+  m_GameObject: {fileID: 296215430}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 4.375, y: 0, z: -3.3333335}
+  m_LocalScale: {x: 0.125, y: 1, z: 0.06666667}
+  m_Children:
+  - {fileID: 1219836461}
+  - {fileID: 1058473283}
+  - {fileID: 735880052}
+  - {fileID: 1758864296}
+  - {fileID: 16704866}
+  - {fileID: 1656671287}
+  - {fileID: 266966027}
+  - {fileID: 1538682576}
+  m_Father: {fileID: 2079145241}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &297155962
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 297155963}
+  - component: {fileID: 297155966}
+  - component: {fileID: 297155965}
+  - component: {fileID: 297155964}
+  m_Layer: 5
+  m_Name: Button
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &297155963
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 297155962}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -37, y: -476, z: 0}
+  m_LocalScale: {x: 3, y: 3, z: 3}
+  m_Children:
+  - {fileID: 1742188870}
+  m_Father: {fileID: 755172250}
+  m_RootOrder: 0
+>>>>>>> 13a73ef9a6144dcef7d8af49da5b4c25b1e4fea0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &222531983
 MeshRenderer:
@@ -9477,6 +9534,7 @@ GameObject:
   m_PrefabInternal: {fileID: 0}
   serializedVersion: 5
   m_Component:
+<<<<<<< HEAD
   - component: {fileID: 1394988792}
   - component: {fileID: 1394988795}
   - component: {fileID: 1394988794}
@@ -9484,6 +9542,17 @@ GameObject:
   m_Layer: 9
   m_Name: MapButton4
   m_TagString: BlockButton
+=======
+  - component: {fileID: 1495000039}
+  - component: {fileID: 1495000038}
+  - component: {fileID: 1495000036}
+  - component: {fileID: 1495000035}
+  - component: {fileID: 1495000037}
+  - component: {fileID: 1495000040}
+  m_Layer: 8
+  m_Name: Map
+  m_TagString: Untagged
+>>>>>>> 13a73ef9a6144dcef7d8af49da5b4c25b1e4fea0
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
