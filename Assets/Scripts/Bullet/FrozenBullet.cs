@@ -14,7 +14,8 @@ public class FrozenBullet : Bullet {
 	void Start () {
         gun = GameObject.FindGameObjectWithTag("3dCamera");
         rigidbody.velocity = gun.transform.TransformDirection(Vector3.forward) * flySpeed ;
-	}
+        Destroy(this.gameObject, liveTime);
+    }
 	
 	// Update is called once per frame
 	void Update () {

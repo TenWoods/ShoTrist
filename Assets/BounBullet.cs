@@ -2,14 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BombBullet : Bullet
-{
-    float livetime = 5f;
-    // Use this for initialization
-    public BombBullet(float flySpeed, float damage, float shootSpeed) : base(flySpeed, damage, shootSpeed)
+public class BounBullet : Bullet {
+    float liveTime = 10f;
+
+    public BounBullet(float flySpeed, float damage, float shootSpeed) : base(flySpeed, damage, shootSpeed)
     {
     }
-
     public Transform transform;
     public Rigidbody rigidbody;
     private GameObject gun;
@@ -20,10 +18,6 @@ public class BombBullet : Bullet
         rigidbody.velocity = gun.transform.TransformDirection(Vector3.forward) * flySpeed;
     }
 
-    public void Update()
-    {
-        //Destroy(this.gameObject,livetime );
-    }
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Block_1") || other.gameObject.CompareTag("Block_2"))
@@ -34,8 +28,5 @@ public class BombBullet : Bullet
         {//通过取消对Player的碰撞来取消相机方向向上时的迷之碰撞
             Destroy(this.gameObject);
         }
-
     }
-
-
 }

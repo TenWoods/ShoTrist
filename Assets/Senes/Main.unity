@@ -3336,7 +3336,7 @@ GameObject:
   - component: {fileID: 425319190}
   - component: {fileID: 425319189}
   m_Layer: 8
-  m_Name: Plane (1)
+  m_Name: Wall1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3361,7 +3361,7 @@ MeshRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 425319187}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -3399,7 +3399,7 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
@@ -8906,6 +8906,17 @@ Prefab:
       propertyPath: gun
       value: 
       objectReference: {fileID: 1693993189}
+    - target: {fileID: 114502261174344734, guid: ec73c3648736ccc4f9c084f8869e66ff,
+        type: 2}
+      propertyPath: _bullets
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114502261174344734, guid: ec73c3648736ccc4f9c084f8869e66ff,
+        type: 2}
+      propertyPath: g_normalBullet
+      value: 
+      objectReference: {fileID: 1442905980199600, guid: e49394b6f68bef04583214a0ca89aa35,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ec73c3648736ccc4f9c084f8869e66ff, type: 2}
   m_IsPrefabParent: 0
@@ -8921,7 +8932,7 @@ GameObject:
   - component: {fileID: 1337523438}
   - component: {fileID: 1337523437}
   m_Layer: 8
-  m_Name: Plane (2)
+  m_Name: Wall2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8946,7 +8957,7 @@ MeshRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1337523435}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -8984,7 +8995,7 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
@@ -11237,7 +11248,7 @@ GameObject:
   - component: {fileID: 1738249236}
   - component: {fileID: 1738249235}
   m_Layer: 8
-  m_Name: Plane
+  m_Name: Wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11262,7 +11273,7 @@ MeshRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1738249233}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -11300,7 +11311,7 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
