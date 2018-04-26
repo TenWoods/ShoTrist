@@ -24,13 +24,16 @@ public class MapEditor : MonoBehaviour
     private float mapRotateSpeed;
     [SerializeField]
     private float cameraMoveSpeed;
+    [SerializeField]
+    private int clickNum;
 
+    public GameObject StartUI;
     public GameObject game;
     public GameObject edit;
     public GameObject camera_2D;
     public Camera camera_3D;
     public Camera editCamera;
-    
+
 
     private void Start()
     {
@@ -45,7 +48,10 @@ public class MapEditor : MonoBehaviour
         {
             if (Input.GetMouseButtonDown(0))
             {
-                SetColor(Color.black, 4);
+                if (clickNum > 0)
+                {
+                    SetColor(Color.black, 4);
+                }
             }
             else if (Input.GetMouseButtonDown(1))
             {
@@ -65,6 +71,7 @@ public class MapEditor : MonoBehaviour
                 edit.SetActive(false);
                 camera_2D.SetActive(true);
                 game.SetActive(true);
+                StartUI.SetActive(false);
             }
             else
             {
@@ -86,8 +93,15 @@ public class MapEditor : MonoBehaviour
         {
             if (hitInfo.collider.tag == "BlockButton")
             {
-                hitInfo.collider.GetComponent<Renderer>().material.color = color;
-                map.map[(int)(hitInfo.collider.transform.position.x / 10), (int)(hitInfo.collider.transform.position.z / 10)] = colorNum;
+                if (hitInfo.collider.GetComponent<Renderer>().material.color != color)
+                {
+                    hitInfo.collider.GetComponent<Renderer>().material.color = color;
+                    map.map[(int)(hitInfo.collider.transform.position.x / 10), (int)(hitInfo.collider.transform.position.z / 10)] = colorNum;
+                    if (color == Color.black)
+                        clickNum--;
+                    else if (color == Color.white)
+                        clickNum++;
+                }
             }
         }
     }

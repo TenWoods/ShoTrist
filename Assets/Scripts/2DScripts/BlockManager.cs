@@ -6,8 +6,6 @@ public class BlockManager : MonoBehaviour
 {
     [SerializeField]
     private float MoveSpeed;
-    //最小速度
-    public static float baseSpeed = 6f;
     [SerializeField]
     private float AccelerateSpeed;
     //地图数组：红为1，蓝为2，黄为3，无方块为0, 墙为4
@@ -24,6 +22,7 @@ public class BlockManager : MonoBehaviour
     public Sprite[] sprites;
     public Transform spawnPoint;
     public Transform monsterPoint;
+    public static float baseSpeed = 5;
 
     public int[,] Map
     {
@@ -68,7 +67,14 @@ public class BlockManager : MonoBehaviour
             }
             else
             {
-                BlockMove();
+                if (Block_1.GetComponent<BlockHP>().IsBroken && Block_2.GetComponent<BlockHP>().IsBroken)
+                {
+                    initNewBlock = false;
+                }
+                else
+                {
+                    BlockMove();
+                }
             }
         }
     }
@@ -255,7 +261,7 @@ public class BlockManager : MonoBehaviour
         }
         Block.transform.position = new Vector3((int)(Block.transform.position.x), 5, (int)(Block.transform.position.z));
         Blocks[(int)((Block.transform.position.x) / 10), (int)((Block.transform.position.z) / 10)] = Block;
-     }
+    }
 
     //检测消除
     private void CheckDestroy(int x, int z)
