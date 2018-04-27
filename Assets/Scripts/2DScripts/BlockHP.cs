@@ -62,6 +62,7 @@ public class BlockHP : MonoBehaviour
     public void TakeDamage(float damage)
     {
         blockHP -= damage;
+
     }
     
     public void SpeedDown(float downNum)

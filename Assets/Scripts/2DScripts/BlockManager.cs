@@ -12,7 +12,9 @@ public class BlockManager : MonoBehaviour
     private int[,] map;
     //静止方块数组
     private GameObject[,] Blocks;
+    [SerializeField]
     private bool initNewBlock;
+    [SerializeField]
     private bool initAmonster;
     private bool gameStart;
     private GameObject Block_1;
@@ -70,6 +72,8 @@ public class BlockManager : MonoBehaviour
                 if (Block_1.GetComponent<BlockHP>().IsBroken && Block_2.GetComponent<BlockHP>().IsBroken)
                 {
                     initNewBlock = false;
+                    DestroyBlock(Block_1);
+                    DestroyBlock(Block_2);
                 }
                 else
                 {
@@ -87,6 +91,11 @@ public class BlockManager : MonoBehaviour
         RandomColor(Block_1);
         RandomColor(Block_2);
         initNewBlock = true;
+    }
+
+    private void DestroyBlock(GameObject block)
+    {
+        Destroy(block);
     }
 
     //随机生成颜色
@@ -228,7 +237,8 @@ public class BlockManager : MonoBehaviour
             }
             else
             {
-                Destroy(Block_1);
+                DestroyBlock(Block_1);
+                map[(int)((Block_1.transform.position.x) / 10), (int)((Block_1.transform.position.z) / 10)] = 0;
             }
             if (!Block_2.GetComponent<BlockHP>().IsBroken)
             {
@@ -238,9 +248,10 @@ public class BlockManager : MonoBehaviour
             }
             else
             {
-                Destroy(Block_2);
+                DestroyBlock(Block_2);
+                map[(int)((Block_2.transform.position.x) / 10), (int)((Block_2.transform.position.z) / 10)] = 0;
             }
-            initNewBlock = false;
+
         }
     }
 

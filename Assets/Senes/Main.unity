@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -9643,6 +9643,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MoveSpeed: 10
   AccelerateSpeed: 30
+  initNewBlock: 0
+  initAmonster: 0
   baseBlock: {fileID: 1780950799701814, guid: af9060d766cc00b4dbf8e6a6975c7ec4, type: 2}
   monster: {fileID: 1077634169506218, guid: 79d0243def531dc479d8d3d3240563e6, type: 2}
   sprites:
