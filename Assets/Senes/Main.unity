@@ -88,7 +88,6 @@ LightmapSettings:
     m_PVRFilteringAtrousPositionSigmaDirect: 0.5
     m_PVRFilteringAtrousPositionSigmaIndirect: 2
     m_PVRFilteringAtrousPositionSigmaAO: 1
-    m_ShowResolutionOverlay: 1
   m_LightingDataAsset: {fileID: 0}
   m_UseShadowmask: 1
 --- !u!196 &4
@@ -943,7 +942,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 153488844}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -906, y: 0, z: 0}
   m_LocalScale: {x: 5, y: 5, z: 5}
   m_Children: []
   m_Father: {fileID: 774200007}
@@ -1269,7 +1268,7 @@ GameObject:
   m_Component:
   - component: {fileID: 216473449}
   - component: {fileID: 216473450}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1284,7 +1283,7 @@ Transform:
   m_GameObject: {fileID: 216473448}
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.25, y: 0.25, z: 0.25}
+  m_LocalScale: {x: 3.5, y: 1.75, z: 2}
   m_Children: []
   m_Father: {fileID: 1495000039}
   m_RootOrder: 0
@@ -1323,15 +1322,15 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 636fdc0831eab2c4891a9d3aee237c9f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 40, y: 40}
+  m_Size: {x: 5.04, y: 5.76}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
 --- !u!1 &219188427
 GameObject:
@@ -2006,7 +2005,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 297155962}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -37, y: -476, z: 0}
   m_LocalScale: {x: 3, y: 3, z: 3}
   m_Children:
   - {fileID: 1742188870}
@@ -2750,7 +2749,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 357147208}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -208.80466}
+  m_LocalPosition: {x: 1833.9636, y: 554.16095, z: -208.80466}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1024732810}
@@ -3946,7 +3945,6 @@ Camera:
   m_TargetEye: 3
   m_HDR: 1
   m_AllowMSAA: 1
-  m_AllowDynamicResolution: 0
   m_ForceIntoRT: 0
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
@@ -4382,7 +4380,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 555812016}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 887, y: 0, z: 0}
   m_LocalScale: {x: 5, y: 5, z: 5}
   m_Children: []
   m_Father: {fileID: 774200007}
@@ -5663,6 +5661,7 @@ GameObject:
   m_Component:
   - component: {fileID: 770519444}
   - component: {fileID: 770519445}
+  - component: {fileID: 770519446}
   m_Layer: 9
   m_Name: player
   m_TagString: Untagged
@@ -5719,7 +5718,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: ffb530f796dbd6b408220ca4d35eb384, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 34c73c568c3ad604192e8d6556573926, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -5729,6 +5728,23 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
+--- !u!95 &770519446
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 770519443}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: afa87b956d2fa9e48b3f418c57cbb752, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &774200006
 GameObject:
   m_ObjectHideFlags: 0
@@ -6632,7 +6648,6 @@ Camera:
   m_TargetEye: 3
   m_HDR: 1
   m_AllowMSAA: 1
-  m_AllowDynamicResolution: 0
   m_ForceIntoRT: 0
   m_OcclusionCulling: 0
   m_StereoConvergence: 10
@@ -9091,6 +9106,7 @@ MonoBehaviour:
   fireRate: 0.5
   Camera_3d: {fileID: 940502314}
   camera_Height: 5
+  p_animator: {fileID: 770519446}
   g_normalBullet: {fileID: 1763338611133522, guid: efff5d6b9fcc54e42a87e88bd270a215,
     type: 2}
   g_bombBullet: {fileID: 1763338611133522, guid: efff5d6b9fcc54e42a87e88bd270a215,
@@ -9167,9 +9183,9 @@ RectTransform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1379211953}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -208.80466}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 357147209}
   m_Father: {fileID: 2055708252}
@@ -9645,12 +9661,13 @@ MonoBehaviour:
   AccelerateSpeed: 30
   initNewBlock: 0
   initAmonster: 0
+  GM: {fileID: 1495000040}
   baseBlock: {fileID: 1780950799701814, guid: af9060d766cc00b4dbf8e6a6975c7ec4, type: 2}
   monster: {fileID: 1077634169506218, guid: 79d0243def531dc479d8d3d3240563e6, type: 2}
   sprites:
-  - {fileID: 21300002, guid: 32488700342d9da4da0c6a5caf39577a, type: 3}
-  - {fileID: 21300004, guid: 32488700342d9da4da0c6a5caf39577a, type: 3}
-  - {fileID: 21300006, guid: 32488700342d9da4da0c6a5caf39577a, type: 3}
+  - {fileID: 21300000, guid: 5713d876a59f83d4985d94d1222a6895, type: 3}
+  - {fileID: 21300000, guid: 81890b15c3271b04288ea3213132ceeb, type: 3}
+  - {fileID: 21300000, guid: b57e3e6cf60bb4c41a97790cda106bac, type: 3}
   spawnPoint: {fileID: 2121200672}
   monsterPoint: {fileID: 395187590}
 --- !u!33 &1495000036
@@ -9669,9 +9686,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 3
+  serializedVersion: 2
   m_Convex: 1
-  m_CookingOptions: 14
+  m_InflateMesh: 0
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!33 &1495000038
@@ -9710,10 +9727,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7f3dfb42d2ab89419d3e99900efd228, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameTime: 120
   normalBlock: {fileID: 1258175948924438, guid: 92725f9216ef8eb439e1f8ff884d7b80,
     type: 2}
-  floor_1: {fileID: 1399702093980984, guid: 7e7e4934644c25f418e1d218426532a4, type: 2}
-  floor_2: {fileID: 1399702093980984, guid: 7e7e4934644c25f418e1d218426532a4, type: 2}
 --- !u!114 &1495000041
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12130,8 +12146,8 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1874374330}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 960, y: 540, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 774200007}
   m_Father: {fileID: 0}
@@ -12584,9 +12600,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 3
+  serializedVersion: 2
   m_Convex: 0
-  m_CookingOptions: 14
+  m_InflateMesh: 0
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!33 &1967185729

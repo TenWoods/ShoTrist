@@ -46,12 +46,18 @@ public class Player : MonoBehaviour
 	//摄像机高度
 	[SerializeField] private float camera_Height = 5f;
 
+    //2D角色动画
+    [SerializeField]
+    private Animator p_animator;
+
     bool isGround = true;
 
 	public GameObject g_normalBullet;
 	public GameObject g_bombBullet;
 	public GameObject g_frozenBullet;
 	public GameObject g_fightBullet;
+    //GameManager
+    public GameManager GM;
 
 	enum Bullets
 	{
@@ -90,12 +96,18 @@ public class Player : MonoBehaviour
 	}
 	
 	// Update is called once per frame
-	void Update () {
-		if(life<=0)
-			return;
-		Control();
-		//fire();
-	}
+	void Update ()
+    {
+        if (GM.GameStart)
+        {
+            if (life <= 0)
+            {
+                GM.Player_3d_Dead = true;
+            }
+            Control();
+            //fire();
+        }
+    }
 
 	void Control()
 	{
