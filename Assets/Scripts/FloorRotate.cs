@@ -20,7 +20,6 @@ public class FloorRotate : MonoBehaviour
         else
         {
             transform.rotation = Quaternion.Euler(90, 0, 0);
-            GameObject.Find("Map").GetComponent<GameManager>().BuildFinish = true;
             gameObject.GetComponent<FloorRotate>().enabled = false;
         }
     }

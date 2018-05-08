@@ -12,9 +12,11 @@ public class BlockManager : MonoBehaviour
     private int[,] map;
     //静止方块数组
     private GameObject[,] Blocks;
+    [SerializeField]
     private bool initNewBlock;
+    [SerializeField]
     private bool initAmonster;
-    private bool gameStart;
+    public GameManager GM;
     private GameObject Block_1;
     private GameObject Block_2;
     public GameObject baseBlock;
@@ -36,30 +38,17 @@ public class BlockManager : MonoBehaviour
         }
     }
 
-    public bool GameStart
-    {
-        get
-        {
-            return gameStart;
-        }
-        set
-        {
-            gameStart = value;
-        }
-    }
-
     private void Awake()
     {
         initNewBlock = false;
         initAmonster = false;
-        gameStart = false;
         map = new int[8, 15];
         Blocks = new GameObject[8, 15];
     }
 
     private void Update()
     {
-        if (gameStart)
+        if (GM.GameStart)
         {
             if (!initNewBlock)
             {
@@ -70,6 +59,8 @@ public class BlockManager : MonoBehaviour
                 if (Block_1.GetComponent<BlockHP>().IsBroken && Block_2.GetComponent<BlockHP>().IsBroken)
                 {
                     initNewBlock = false;
+                    DestroyBlock(Block_1);
+                    DestroyBlock(Block_2);
                 }
                 else
                 {
@@ -87,6 +78,11 @@ public class BlockManager : MonoBehaviour
         RandomColor(Block_1);
         RandomColor(Block_2);
         initNewBlock = true;
+    }
+
+    private void DestroyBlock(GameObject block)
+    {
+        Destroy(block);
     }
 
     //随机生成颜色
@@ -228,7 +224,8 @@ public class BlockManager : MonoBehaviour
             }
             else
             {
-                Destroy(Block_1);
+                DestroyBlock(Block_1);
+                map[(int)((Block_1.transform.position.x) / 10), (int)((Block_1.transform.position.z) / 10)] = 0;
             }
             if (!Block_2.GetComponent<BlockHP>().IsBroken)
             {
@@ -238,7 +235,8 @@ public class BlockManager : MonoBehaviour
             }
             else
             {
-                Destroy(Block_2);
+                DestroyBlock(Block_2);
+                map[(int)((Block_2.transform.position.x) / 10), (int)((Block_2.transform.position.z) / 10)] = 0;
             }
             initNewBlock = false;
         }
@@ -247,6 +245,12 @@ public class BlockManager : MonoBehaviour
     //根据颜色设置数字
     private void SetBlockInMap(GameObject Block)
     {
+        Debug.Log((int)((Block.transform.position.z) / 10));
+        if (((int)((Block.transform.position.x) / 10) == 3 || ((int)((Block.transform.position.x) / 10) == 4)) && (int)((Block.transform.position.z) / 10) == 14)
+        {
+            GM.Player_2d_Dead = true;
+            //Debug.Log((int)((Block.transform.position.z) / 10));
+        }
         if (Block.GetComponent<Renderer>().material.color == Color.red)
         {
             map[(int)((Block.transform.position.x) / 10), (int)((Block.transform.position.z) / 10)] = 1;

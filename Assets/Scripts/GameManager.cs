@@ -10,10 +10,17 @@ public class GameManager : MonoBehaviour
     //存档路径
     private string saveDirectionary;
     private BlockManager BM;
-    private bool buildFinish;
+    private bool gameStart = false;
+    //游戏计时器
+    [SerializeField]
+    private float timer = 0;
+    //3d玩家死亡
+    private bool player_3d_dead = false;
+    //2d玩家死亡
+    private bool player_2d_dead = false;
+    [SerializeField]
+    private float gameTime;
     public GameObject normalBlock;
-    public GameObject floor_1;
-    public GameObject floor_2;
 
     public string SAVEDIR
     {
@@ -31,37 +38,31 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public bool BuildFinish
-    {
-        get
-        {
-            return buildFinish;
-        }
-        set
-        {
-            buildFinish = value;
-        }
-    }
-
     private void Start()
     {
-        buildFinish = false;
         BM = this.gameObject.GetComponent<BlockManager>();
         int[,] map;
         saveManager = new SaveDataSystem();
-        Debug.Log(saveDirectionary);
-        map = ((Map)saveManager.GetData(Application.persistentDataPath + "/Save/test.map", typeof(Map))).map;
-        BuildFloor(map);
+        //Debug.Log(saveDirectionary);
         map = ((Map)saveManager.GetData(Application.persistentDataPath + "/Save/test.map", typeof(Map))).map;
         BuildMap(map);
         BM.Map = map;
+        gameStart = true;
     }
 
     private void Update()
     {
-        if (!BM.GameStart && buildFinish)
+        if (gameStart)
         {
-            BM.GameStart = buildFinish;
+            if (timer < gameTime && !player_2d_dead && !player_3d_dead)
+            {
+                timer += Time.deltaTime;
+            }
+            else
+            {
+                gameStart = false;
+                Debug.Log("GameOver");
+            }
         }
     }
 
@@ -75,25 +76,6 @@ public class GameManager : MonoBehaviour
                 if (map[i, j] == 4)
                 {
                     GameObject.Instantiate(normalBlock, new Vector3(i * 10, 4.65f, j * 10), Quaternion.Euler(0, 0, 0));
-                }
-            }
-        }
-    }
-
-    private void BuildFloor(int[,] map)
-    {
-        int i = 0, j = 0;
-        for (i = 0; i < 8; i++)
-        {
-            for (j = 0; j < 15; j++)
-            {
-                if (map[i, j] == 4)
-                {
-                    GameObject.Instantiate(floor_1, new Vector3(i * 10, 0, j * 10), Quaternion.Euler(0, -45, 0));
-                }
-                else
-                {
-                    GameObject.Instantiate(floor_2, new Vector3(i * 10, 0, j * 10), Quaternion.Euler(0, -45, 0));
                 }
             }
         }
@@ -113,5 +95,29 @@ public class GameManager : MonoBehaviour
     {
         string filePath = saveDirectionary + "/" + fileName + ".save";
         return SaveManager.GetData(filePath, type);
+    }
+
+    public bool Player_2d_Dead
+    {
+        set
+        {
+            player_2d_dead = value;
+        }
+    }
+
+    public bool Player_3d_Dead
+    {
+        set
+        {
+            player_3d_dead = value;
+        }
+    }
+
+    public bool GameStart
+    {
+        get
+        {
+            return gameStart;
+        }
     }
 }
