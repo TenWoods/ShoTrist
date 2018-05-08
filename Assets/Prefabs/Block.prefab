@@ -301,8 +301,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   blockHP: 10
-  moveSpeed: 10
-  accelerateSpeed: 30
+  moveSpeed: 40
+  accelerateSpeed: 60
+  damage: 1
+  force: 50
 --- !u!114 &114880438236233868
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -315,8 +317,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   blockHP: 10
-  moveSpeed: 10
-  accelerateSpeed: 30
+  moveSpeed: 40
+  accelerateSpeed: 60
+  damage: 1
+  force: 50
 --- !u!208 &208695371029434878
 NavMeshObstacle:
   m_ObjectHideFlags: 1

@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.Audio;
 
 public class Player : MonoBehaviour
@@ -27,7 +28,8 @@ public class Player : MonoBehaviour
 	[SerializeField] private float gravity = 2.0f;
 
 	//生命值
-	public int life = 10;
+	public float life = 10;
+    private float currentLife;
 
 	//用于计时跳跃蓄力时间长短的计时器
 	public float timer = 0;
@@ -56,6 +58,7 @@ public class Player : MonoBehaviour
 	public GameObject g_bombBullet;
 	public GameObject g_frozenBullet;
 	public GameObject g_fightBullet;
+    public Slider p_HP;
     //GameManager
     public GameManager GM;
 
@@ -92,7 +95,9 @@ public class Player : MonoBehaviour
         //锁定鼠标
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
-//		bullet1=new NormalBullet(1,1);
+        //bullet1=new NormalBullet(1,1);
+        //初始化血量
+        currentLife = life;
 	}
 	
 	// Update is called once per frame
@@ -100,7 +105,7 @@ public class Player : MonoBehaviour
     {
         if (GM.GameStart)
         {
-            if (life <= 0)
+            if (currentLife <= 0)
             {
                 GM.Player_3d_Dead = true;
             }
@@ -212,13 +217,24 @@ public class Player : MonoBehaviour
             isJumpCD = false;
             timer = 0;
         }
-            
     }
 
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("Ground"))
             isGround = true;
+    }
+
+    //受到伤害
+    public void TakeDamage(float damage)
+    {
+        currentLife -= damage;
+        p_HP.value = currentLife / life;
+    }
+
+    public void AddForce(float force)
+    {
+        p_transform.Translate(new Vector3(0, 0, -force));
     }
 
     /// <summary>

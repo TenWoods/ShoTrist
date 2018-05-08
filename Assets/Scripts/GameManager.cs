@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -11,16 +12,15 @@ public class GameManager : MonoBehaviour
     private string saveDirectionary;
     private BlockManager BM;
     private bool gameStart = false;
-    //游戏计时器
-    [SerializeField]
-    private float timer = 0;
     //3d玩家死亡
     private bool player_3d_dead = false;
     //2d玩家死亡
     private bool player_2d_dead = false;
+    //游戏计时器
     [SerializeField]
     private float gameTime;
     public GameObject normalBlock;
+    public Text TimeCounter;
 
     public string SAVEDIR
     {
@@ -54,9 +54,10 @@ public class GameManager : MonoBehaviour
     {
         if (gameStart)
         {
-            if (timer < gameTime && !player_2d_dead && !player_3d_dead)
+            if (gameTime >= 0 && !player_2d_dead && !player_3d_dead)
             {
-                timer += Time.deltaTime;
+                gameTime -= Time.deltaTime;
+                TimeCounter.text = gameTime.ToString("F2");
             }
             else
             {

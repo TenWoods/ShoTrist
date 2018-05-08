@@ -9115,6 +9115,7 @@ MonoBehaviour:
     type: 2}
   g_fightBullet: {fileID: 1668273018469052, guid: 31817314dc70b9b41b773fdd0dbb1ce8,
     type: 2}
+  GM: {fileID: 1495000040}
   _bullets: 2
   gun: {fileID: 1693993189}
 --- !u!54 &1248865386
@@ -9727,6 +9728,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7f3dfb42d2ab89419d3e99900efd228, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  timer: 0
   gameTime: 120
   normalBlock: {fileID: 1258175948924438, guid: 92725f9216ef8eb439e1f8ff884d7b80,
     type: 2}

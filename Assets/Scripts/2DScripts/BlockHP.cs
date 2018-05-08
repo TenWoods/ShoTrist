@@ -13,6 +13,9 @@ public class BlockHP : MonoBehaviour
     private float accelerateSpeed;
     private bool isBroken;
 
+    public float damage;
+    public float force;
+
     public bool IsBroken
     {
         get
@@ -59,10 +62,18 @@ public class BlockHP : MonoBehaviour
         isBroken = true;
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            other.GetComponent<Player>().TakeDamage(damage);
+            other.GetComponent<Player>().AddForce(force);
+        }
+    }
+
     public void TakeDamage(float damage)
     {
         blockHP -= damage;
-
     }
     
     public void SpeedDown(float downNum)
