@@ -92,7 +92,7 @@ public class Player : MonoBehaviour
         //锁定鼠标
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
-//		bullet1=new NormalBullet(1,1);
+
 	}
 	
 	// Update is called once per frame
