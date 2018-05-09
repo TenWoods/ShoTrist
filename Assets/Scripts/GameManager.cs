@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -11,6 +12,8 @@ public class GameManager : MonoBehaviour
     //存档路径
     private string saveDirectionary;
     private BlockManager BM;
+    private int[,] map;
+    //游戏开始标识
     private bool gameStart = false;
     //3d玩家死亡
     private bool player_3d_dead = false;
@@ -21,6 +24,14 @@ public class GameManager : MonoBehaviour
     private float gameTime;
     public GameObject normalBlock;
     public Text TimeCounter;
+    //显示获胜者
+    public Text winnerText_2d;
+    public Text winnerText_3d;
+    //重开按钮
+    public GameObject restart;
+    //弹药补给和生命值补给
+    public GameObject HealthBox;
+    public GameObject BulletBox;
 
     public string SAVEDIR
     {
@@ -41,7 +52,6 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         BM = this.gameObject.GetComponent<BlockManager>();
-        int[,] map;
         saveManager = new SaveDataSystem();
         //Debug.Log(saveDirectionary);
         map = ((Map)saveManager.GetData(Application.persistentDataPath + "/Save/test.map", typeof(Map))).map;
@@ -62,11 +72,13 @@ public class GameManager : MonoBehaviour
             else
             {
                 gameStart = false;
+                WinnerCheck();
                 Debug.Log("GameOver");
             }
         }
     }
 
+    //创建场景
     private void BuildMap(int[,] map)
     {
         int i = 0, j = 0;
@@ -80,6 +92,27 @@ public class GameManager : MonoBehaviour
                 }
             }
         }
+    }
+
+    private void WinnerCheck()
+    {
+        restart.SetActive(true);
+        if (player_3d_dead)
+        {
+            winnerText_2d.text = "You Win!";
+            winnerText_3d.text = "You Lose!";
+        }
+        else
+        {
+            winnerText_2d.text = "You Lose!";
+            winnerText_3d.text = "You Win!";
+        }
+    }
+
+    public void ReStartGame()
+    {
+        //TODO
+        SceneManager.LoadScene(1);
     }
 
     //存档

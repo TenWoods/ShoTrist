@@ -10,6 +10,8 @@ public class MonsterAI : MonoBehaviour
     private NavMeshAgent nav;
     private GameObject player;
 
+    public float MonsterDamage;
+
     private void Start()
     {
         nav = GetComponent<NavMeshAgent>();
@@ -22,6 +24,14 @@ public class MonsterAI : MonoBehaviour
         if (monsterHP <= 0)
         {
             Destroy(this.gameObject);
+        }
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            collision.gameObject.GetComponent<Player>().TakeDamage(MonsterDamage);
         }
     }
 
