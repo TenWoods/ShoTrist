@@ -6,6 +6,7 @@ public class ObjectsManager : MonoBehaviour
 {//做为可拾取物体的集体属性与功能继承的父类
 
     public float liveTime;
+
     public ObjectsManager(float livingTime)
     {
         this.liveTime = livingTime;

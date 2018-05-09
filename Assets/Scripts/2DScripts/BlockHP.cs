@@ -2,16 +2,22 @@
 using System.Collections.Generic;
 using UnityEngine.AI;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class BlockHP : MonoBehaviour
 {
     [SerializeField]
-    private float blockHP;
+    private float currentblockHP;
     [SerializeField]
     private float moveSpeed;
     [SerializeField]
     private float accelerateSpeed;
     private bool isBroken;
+
+    public float damage;
+    public float force;
+    public float blockHP;
+    public SpriteRenderer sprite;
 
     public bool IsBroken
     {
@@ -40,11 +46,12 @@ public class BlockHP : MonoBehaviour
     private void Start()
     {
         isBroken = false;
+        currentblockHP = blockHP;
     }
 
     private void Update()
     {
-        if (blockHP <= 0)
+        if (currentblockHP <= 0)
         {
             SetBlockUnsee();
         }
@@ -59,10 +66,20 @@ public class BlockHP : MonoBehaviour
         isBroken = true;
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Player") && !this.CompareTag("StillBlock"))
+        {
+            other.GetComponent<Player>().TakeDamage(damage);
+            other.GetComponent<Player>().AddForce(force);
+        }
+    }
+
     public void TakeDamage(float damage)
     {
-        blockHP -= damage;
-
+        currentblockHP -= damage;
+        sprite.color = new Color(sprite.color.r, sprite.color.g, sprite.color.b, sprite.color.a - damage / blockHP);
+        //Debug.Log(sprite.color);
     }
     
     public void SpeedDown(float downNum)

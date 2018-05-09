@@ -28,6 +28,7 @@ public class MapEditor : MonoBehaviour
     private int clickNum;
 
     public GameObject StartUI;
+    public GameObject GameUI;
     public GameObject game;
     public GameObject edit;
     public GameObject camera_2D;
@@ -71,7 +72,8 @@ public class MapEditor : MonoBehaviour
                 edit.SetActive(false);
                 camera_2D.SetActive(true);
                 game.SetActive(true);
-                StartUI.SetActive(false);
+                //开启游戏UI
+                GameUI.SetActive(true);
             }
             else
             {
@@ -115,6 +117,8 @@ public class MapEditor : MonoBehaviour
         sd.CreateDirectionary(Application.persistentDataPath + "/Save");
         filePath += "test.map";
         sd.SetData(filePath, this.map);
+        //关闭编辑UI
+        StartUI.SetActive(false);
         startGame = true;
     }
 }

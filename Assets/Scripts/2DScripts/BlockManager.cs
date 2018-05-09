@@ -245,7 +245,6 @@ public class BlockManager : MonoBehaviour
     //根据颜色设置数字
     private void SetBlockInMap(GameObject Block)
     {
-        Debug.Log((int)((Block.transform.position.z) / 10));
         if (((int)((Block.transform.position.x) / 10) == 3 || ((int)((Block.transform.position.x) / 10) == 4)) && (int)((Block.transform.position.z) / 10) == 14)
         {
             GM.Player_2d_Dead = true;
@@ -265,6 +264,8 @@ public class BlockManager : MonoBehaviour
         }
         Block.transform.position = new Vector3((int)(Block.transform.position.x), 5, (int)(Block.transform.position.z));
         Blocks[(int)((Block.transform.position.x) / 10), (int)((Block.transform.position.z) / 10)] = Block;
+        Block.GetComponent<BoxCollider>().isTrigger = false;
+        Block.isStatic = true;
     }
 
     //检测消除

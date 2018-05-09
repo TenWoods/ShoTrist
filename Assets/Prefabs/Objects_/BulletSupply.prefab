@@ -273,6 +273,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4166497664012312}
+  - component: {fileID: 114371374717517920}
   m_Layer: 0
   m_Name: BulletSupply
   m_TagString: Untagged
@@ -2625,3 +2626,16 @@ Light:
   m_UseColorTemperature: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!114 &114371374717517920
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1314647880497742}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 626ce41bbfd661b489cf6b3f20e0caf5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  liveTime: 10
+  bulletType: 0

@@ -2,7 +2,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.Audio;
+
+public enum Bullets
+{
+    normalBullet,
+    bombBullet,
+    frozenBullet,
+    fightBullet,
+}
 
 public class Player : MonoBehaviour
 {
@@ -27,7 +36,15 @@ public class Player : MonoBehaviour
 	[SerializeField] private float gravity = 2.0f;
 
 	//生命值
-	public int life = 10;
+	public float life = 10;
+    private float currentLife;
+
+    //弹药数
+    private int bulletNum;
+    [SerializeField]
+    private int bulletLimit;
+    [SerializeField]
+    private float reloadTime;
 
 	//用于计时跳跃蓄力时间长短的计时器
 	public float timer = 0;
@@ -56,16 +73,10 @@ public class Player : MonoBehaviour
 	public GameObject g_bombBullet;
 	public GameObject g_frozenBullet;
 	public GameObject g_fightBullet;
+    public Text bulletUI;
+    public Slider p_HP;
     //GameManager
     public GameManager GM;
-
-	enum Bullets
-	{
-		normalBullet,
-		bombBullet,
-	 	frozenBullet,
-		fightBullet,
-	}
 
 	[SerializeField]Bullets _bullets=Bullets.bombBullet;
 	
@@ -92,20 +103,24 @@ public class Player : MonoBehaviour
         //锁定鼠标
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
-
-	}
+        //bullet1=new NormalBullet(1,1);
+        //初始化血量
+        currentLife = life;
+        //初始化弹药量
+        bulletNum = bulletLimit;
+        bulletUI.text = bulletNum.ToString() + "/" + bulletLimit.ToString();
+    }
 	
 	// Update is called once per frame
 	void Update ()
     {
         if (GM.GameStart)
         {
-            if (life <= 0)
+            if (currentLife <= 0)
             {
                 GM.Player_3d_Dead = true;
             }
             Control();
-            //fire();
         }
     }
 
@@ -172,8 +187,7 @@ public class Player : MonoBehaviour
 
         CheckJumpCD();
 
-
-        if (Total_Input.ctr_fire && Time.time > nextTime)
+        if (Total_Input.ctr_fire && Time.time > nextTime && bulletNum > 0)
 		{
 			nextTime = Time.time + fireRate;
 			switch (_bullets)
@@ -191,14 +205,18 @@ public class Player : MonoBehaviour
 					Instantiate(g_frozenBullet, gun.transform.position, gun.transform.rotation);
 					break;
 			}
-			
-		}
+            bulletNum -= 1;
+            bulletUI.text = bulletNum.ToString() + "/" + bulletLimit.ToString();
+            ReloadBullet();
+        }
+        else if (bulletNum <= 0)
+        {
+            StartCoroutine(ReloadBullet());
+        }
         transform.Translate(new Vector3(xm, ym, zm));
-
 		camera_Transform.position = p_transform.TransformPoint(0, -0.6f, 0);
+    }
 
-		
-	}
 
     /// <summary>
     /// 用于检测JumpCD变量的函数，当计时器超过冷却时间时将JumpCD置false，同时重置计时器
@@ -212,7 +230,14 @@ public class Player : MonoBehaviour
             isJumpCD = false;
             timer = 0;
         }
-            
+    }
+
+    private IEnumerator ReloadBullet()
+    {
+        Debug.Log("Reloading");
+        yield return new WaitForSeconds(reloadTime);
+        bulletNum = bulletLimit;
+        bulletUI.text = bulletNum.ToString() + "/" + bulletLimit.ToString();
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -221,36 +246,36 @@ public class Player : MonoBehaviour
             isGround = true;
     }
 
+    //受到伤害
+    public void TakeDamage(float damage)
+    {
+        currentLife -= damage;
+        p_HP.value = currentLife / life;
+    }
+
+    //受到冲击
+    public void AddForce(float force)
+    {
+        p_transform.Translate(new Vector3(0, 0, -force));
+    }
+
     /// <summary>
     /// 用于拾取生命值时添加生命
     /// </summary>
     /// <param name="healing">增加的生命值</param>
-	void AddHealth(int  healing)
+	public void AddHealth(int healing)
 	{
 		print("I nead healing!+1");
 		this.life += healing;
 	}
+
     /// <summary>
-    /// 用于拾取子弹时更改子弹状态
+    /// 用于拾取子弹并更改子弹状态
     /// </summary>
     /// <param name="bulletType">子弹属性</param>
-    void ChangeBullet(string bulletType)
+    public void GetBullet(Bullets bulletType)
     {
-        switch (bulletType)
-        {
-            case "bombBullet":
-                this._bullets = Bullets.bombBullet;
-                break;
-            case "normalBullet":
-                this._bullets = Bullets.normalBullet;
-                break;
-            case "frozenBullet":
-                this._bullets = Bullets.frozenBullet;
-                break;
-            case "fightBullet":
-                this._bullets = Bullets.fightBullet;
-                break;
-        }
+        this._bullets = bulletType;
         print("has changed it to " + _bullets.ToString());
     }
 }

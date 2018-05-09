@@ -5,14 +5,14 @@ using System.Runtime.Remoting.Lifetime;
 using System.Threading;
 using UnityEngine;
 
-public class health : ObjectsManager
+public class Health : ObjectsManager
 {
 	//[SerializeField]private float liveTime;
 
 	//[SerializeField]private GameObject Player;
 	public Transform transform;
 	
-	public health(float livingTime) : base(livingTime)
+	public Health(float livingTime) : base(livingTime)
 	{//生命周期为10秒
 		this.liveTime = 10f;
 	}
@@ -30,11 +30,9 @@ public class health : ObjectsManager
 
 	}
 
-
-
-
 	// Update is called once per frame
-	void Update () {
+	void Update ()
+    {
 		this.transform.Rotate(3,5,2);
 		Destroy(this.gameObject,this.liveTime);
 	}

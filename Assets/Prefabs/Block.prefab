@@ -71,7 +71,6 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4881461114759442}
-  - component: {fileID: 54989924926132126}
   m_Layer: 0
   m_Name: Block
   m_TagString: Untagged
@@ -250,28 +249,13 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1661844094726370}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!54 &54989924926132126
-Rigidbody:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1780950799701814}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!65 &65225047026674700
 BoxCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1661844094726370}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: cff89ba9d8ed2d84aa3bf542352069d9, type: 2}
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
@@ -283,7 +267,7 @@ BoxCollider:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1916904541724046}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: cff89ba9d8ed2d84aa3bf542352069d9, type: 2}
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
@@ -300,9 +284,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0563a7b2a143fc149918af9ae837ecf2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentblockHP: 0
+  moveSpeed: 40
+  accelerateSpeed: 60
+  damage: 1
+  force: 10
   blockHP: 10
-  moveSpeed: 10
-  accelerateSpeed: 30
+  sprite: {fileID: 212230545409368062}
 --- !u!114 &114880438236233868
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -314,9 +302,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0563a7b2a143fc149918af9ae837ecf2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentblockHP: 0
+  moveSpeed: 40
+  accelerateSpeed: 60
+  damage: 1
+  force: 10
   blockHP: 10
-  moveSpeed: 10
-  accelerateSpeed: 30
+  sprite: {fileID: 212071005602253878}
 --- !u!208 &208695371029434878
 NavMeshObstacle:
   m_ObjectHideFlags: 1
