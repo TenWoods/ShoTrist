@@ -264,6 +264,8 @@ public class BlockManager : MonoBehaviour
         }
         Block.transform.position = new Vector3((int)(Block.transform.position.x), 5, (int)(Block.transform.position.z));
         Blocks[(int)((Block.transform.position.x) / 10), (int)((Block.transform.position.z) / 10)] = Block;
+        Block.GetComponent<BoxCollider>().isTrigger = false;
+        Block.isStatic = true;
     }
 
     //检测消除
